@@ -72,7 +72,12 @@ component extends="testbox.system.BaseSpec" {
 			} );
 
 			it( "can load an address with subnet mask", () => {
+				ip.setLoadRange(true);
 				var address = ip.v4('192.168.0.1', '255.255.255.0');
+
+				writeDump(var='#serializeJson(address.toMemento())#', top=5);
+				abort;
+
 				expect( address ).toBeInstanceOf( 'ipv4' );
 			} );
 
@@ -191,6 +196,16 @@ component extends="testbox.system.BaseSpec" {
 				expect( m.ipAddresses ).toInclude( '172.17.0.7' );
 			} );	
 
+			it( "can correctly check if ip is in range", () => {
+				var address = ip.v4('192.168.0.1/24');
+				expect( address.isInRange('192.168.0.5') ).toBeTrue( );
+				expect( address.isInRange('192.168.1.5') ).toBeFalse( );
+
+				var address = ip.v4('192.12.0.0/16');
+				expect( address.isInRange('192.12.128.5') ).toBeTrue( );
+				expect( address.isInRange('192.12.1.5') ).toBeTrue( );
+				expect( address.isInRange('192.13.1.5') ).toBeFalse( );
+			} );
 
 			it( "can can throw with invalid ip address", () => {
 				expect( function(){ 

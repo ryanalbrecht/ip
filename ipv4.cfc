@@ -103,8 +103,7 @@ component accessors="true" {
 			throw("The provided ip address '#arguments.ip#' is not valid");
 		}
 
-		var ipBuffer = ipToDec(arguments.ip);
-		var ipDec = bufferToDec(local.ipBuffer);
+		var ipDec = ipToDec(arguments.ip);
 		return ( ipDec >= variables.networkDecimal ) AND ( ipDec <= variables.broadcastDecimal );
 	}
 
