@@ -1,0 +1,10 @@
+{
+    "app":{
+        "cfengine":"adobe@2021"
+    },
+    "web":{
+        "http":{
+            "port":"56272"
+        }
+    }
+}

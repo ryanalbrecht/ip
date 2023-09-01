@@ -1,0 +1,65 @@
+{
+    "author":"Ryan Albrecht",
+    "bugs":"",
+    "changelog":"",
+    "contributors":[],
+    "dependencies":{},
+    "description":"",
+    "devDependencies":{
+        "testbox":"^5.3.0+5"
+    },
+    "documentation":"",
+    "homepage":"https://github.com/ryanalbrecht/ip",
+    "ignore":[
+        "**/.*",
+        "/test/",
+        "/tests/"
+    ],
+    "installPaths":{
+        "testbox":"testbox/"
+    },
+    "instructions":"",
+    "keywords":"ip subnet cidr",
+    "license":[
+        {
+            "type":"",
+            "URL":""
+        }
+    ],
+    "location":"ForgeboxStorage",
+    "name":"ip",
+    "private":false,
+    "projectURL":"",
+    "reinitWatchDelay":500,
+    "reinitWatchDirectory":"",
+    "reinitWatchPaths":"",
+    "repository":{
+        "type":"",
+        "URL":""
+    },
+    "scripts":{},
+    "shortDescription":"A package to retrieve information for a given ip and subnet",
+    "slug":"ip",
+    "testbox":{
+        "bundles":"",
+        "directory":"tests.specs",
+        "excludes":"",
+        "labels":"",
+        "options":{},
+        "recurse":true,
+        "reporter":"",
+        "runner":[
+            {
+                "default":""
+            }
+        ],
+        "testBundles":"",
+        "testSpecs":"",
+        "testSuites":"",
+        "verbose":true,
+        "watchDelay":500,
+        "watchPaths":"**.cfc"
+    },
+    "type":"modules",
+    "version":"1.0.0"
+}
