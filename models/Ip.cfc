@@ -11,7 +11,7 @@ component {
 
 
 	function v6(required ip, numeric prefix){
-
+		return new ipv6( );
 	}
 
 

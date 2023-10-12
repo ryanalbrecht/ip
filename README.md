@@ -26,7 +26,7 @@ E.g.
 var ip = getInstance('ip@ip');
 
 //vanilla style
-var ip = new my.models.ip.ip();
+var ip = new my.lib.ip.models.ip();
 ```
 
 This returned value is an object which you can use to retrieve information for the given subetnet.

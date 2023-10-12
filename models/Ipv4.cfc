@@ -86,7 +86,7 @@ component accessors="true" {
 
 			//ip address range
 			if(variables.loadRange){
-				for( i = networkDecimal; i <= broadcastDecimal; i++){
+				for( i = networkDecimal+1; i < broadcastDecimal; i++){
 					variables.ipAddresses.append( decToIp(i) );
 				}			
 			}

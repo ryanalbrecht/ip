@@ -7,7 +7,7 @@ component extends="testbox.system.BaseSpec" {
 
 	function beforeAll(){
 		// setup the entire test bundle here
-		variables.ip = new ip();
+		variables.ip = new models.ip();
 		//do not load range to speed up performance
 		ip.setLoadRange( false );
 	}
@@ -66,6 +66,8 @@ component extends="testbox.system.BaseSpec" {
 			 * @data   A struct of data you would like to bind into the spec so it can be later passed into the executing body function
 			 * @focused A flag that tells TestBox to only run this spec and no other
 			 */
+
+
 			it( "can load an address with CIDR format", () => {
 				var address = ip.v4('192.168.0.1/24');
 				expect( address ).toBeInstanceOf( 'ipv4' );
@@ -74,10 +76,6 @@ component extends="testbox.system.BaseSpec" {
 			it( "can load an address with subnet mask", () => {
 				ip.setLoadRange(true);
 				var address = ip.v4('192.168.0.1', '255.255.255.0');
-
-				writeDump(var='#serializeJson(address.toMemento())#', top=5);
-				abort;
-
 				expect( address ).toBeInstanceOf( 'ipv4' );
 			} );
 
@@ -184,16 +182,15 @@ component extends="testbox.system.BaseSpec" {
 				ip.setLoadRange(true);
 				var address = ip.v4('172.17.0.1/29');
 				var m = address.toMemento();
+
 				expect( m ).toHaveKey( 'ipAddresses' )
-				expect( m.ipAddresses ).toHaveLength( 8 );
-				expect( m.ipAddresses ).toInclude( '172.17.0.0' );
+				expect( m.ipAddresses ).toHaveLength( 6 );
 				expect( m.ipAddresses ).toInclude( '172.17.0.1' );
 				expect( m.ipAddresses ).toInclude( '172.17.0.2' );
 				expect( m.ipAddresses ).toInclude( '172.17.0.3' );
 				expect( m.ipAddresses ).toInclude( '172.17.0.4' );
 				expect( m.ipAddresses ).toInclude( '172.17.0.5' );
 				expect( m.ipAddresses ).toInclude( '172.17.0.6' );
-				expect( m.ipAddresses ).toInclude( '172.17.0.7' );
 			} );	
 
 			it( "can correctly check if ip is in range", () => {
